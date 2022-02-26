@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ListCategoryComponent } from './list-category/list-category.component';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
+import{HomeComponent} from './home/home.component'
 
 
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   {path: 'listCategory', component: ListCategoryComponent },
-  { path: 'ticketform', component: TicketFormComponent }
+  { path: 'ticketform', component: TicketFormComponent },
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

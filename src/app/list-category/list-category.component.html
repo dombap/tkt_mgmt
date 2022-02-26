@@ -1,7 +1,7 @@
 <p-table [value]="category">
     <ng-template pTemplate="header">
         <tr>
-            <th>id</th>
+            <th>Id</th>
             <th>Name</th>
             <th>Desc</th>
             <th>Action</th>
@@ -12,9 +12,9 @@
    
     <ng-template pTemplate="body" let-category>
         <tr>
-            <td>{{category.id}}</td>
-            <td>{{category.name}}</td>
-            <td>{{category.desc}}</td>
+            <td>{{category.Id}}</td>
+            <td>{{category.Name}}</td>
+            <td>{{category.Desc}}</td>
             <td>
             <button type="submit" class="btn btn-primary" (click)="delete(category.id)">Delete</button>
     
