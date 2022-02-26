@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../models/login';
 import { HttpClient } from '@angular/common/http';
-
+import {MessageService} from 'primeng/api';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,15 +13,19 @@ export class LoginComponent implements OnInit {
     Email : '',
     Password : ''
   }
-  constructor(private router: Router,private http: HttpClient) { }
+  constructor(private router: Router,private http: HttpClient,private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
   onSubmit(loginForm : any){
     console.log('loginform----',loginForm.value);
     const headers = { 'Access-Control-Allow-Origin': '*' };
-    this.http.get<any>('http://localhost:8000/login',loginForm.value,).subscribe(data => {
-     console.log(data);
+    this.http.post<any>('http://localhost:8000/login',loginForm.value).subscribe(data => {
+      if(data.length > 0){
+        this.router.navigateByUrl('/ticketform');
+      } else {
+        this.messageService.add({severity:'warn', summary:'Login Error', detail:'Please check email and password.'});
+      }
   })
    }
  
