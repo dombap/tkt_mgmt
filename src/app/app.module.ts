@@ -15,7 +15,7 @@ import {DialogModule} from 'primeng/dialog';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
-
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +34,7 @@ import { TicketFormComponent } from './ticket-form/ticket-form.component';
     DialogModule,
     HttpClientModule,
     RouterModule,
+    DropdownModule,
     AppRoutingModule
   ],
   providers: [MessageService],
