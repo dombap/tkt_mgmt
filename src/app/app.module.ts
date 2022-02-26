@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ListCategoryComponent } from './list-category/list-category.component';
 import {TableModule} from 'primeng/table';
+import { HomeComponent } from './home/home.component';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { TicketFormComponent } from './ticket-form/ticket-form.component';
     LoginComponent,
     SignupComponent,
     ListCategoryComponent,
-    TicketFormComponent
+    TicketFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
