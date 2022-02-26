@@ -1,0 +1,22 @@
+<form  #TicketForm="ngForm">
+    <div class="mb-3 mt-3">
+      <label for="name" class="form-label">Created By:</label>
+      <input type="name" class="form-control" id="firstName" name="firstName"   [(ngModel)]=" Ticket.createdBy">
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Created For:</label>
+      <input type="lastName" class="form-control" id="lastName"  name="lastName"   [(ngModel)]=" Ticket.createdFor">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Category:</label>
+        <input type="email" class="form-control" id="email" name="email"   [(ngModel)]=" Ticket.category">
+      </div>
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Description:</label>
+        <input type="password" class="form-control" id="password"  name="password"   [(ngModel)]=" Ticket.description">
+      </div>
+   
+    <button type="submit" class="btn btn-primary" (click)="onSubmit(TicketForm)">Submit</button>
+  </form>
+
+
