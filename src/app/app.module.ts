@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
 import {DropdownModule} from 'primeng/dropdown';
+import { ListTicketComponent } from './list-ticket/list-ticket.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import {DropdownModule} from 'primeng/dropdown';
     SignupComponent,
     ListCategoryComponent,
     TicketFormComponent,
-    HomeComponent
+    HomeComponent,
+    ListTicketComponent
   ],
   imports: [
     BrowserModule,
