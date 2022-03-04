@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { ListTicketComponent } from './list-ticket/list-ticket.component';
+import {InputTextModule} from 'primeng/inputtext';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,7 @@ import { ListTicketComponent } from './list-ticket/list-ticket.component';
     HttpClientModule,
     RouterModule,
     DropdownModule,
+    InputTextModule,
     AppRoutingModule
   ],
   providers: [MessageService],
