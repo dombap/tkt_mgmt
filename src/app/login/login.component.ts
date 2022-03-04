@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Login } from '../models/login';
 import { HttpClient } from '@angular/common/http';
 import {MessageService} from 'primeng/api';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,8 +24,9 @@ export class LoginComponent implements OnInit {
     this.http.post<any>('http://localhost:8000/login',loginForm.value).subscribe(data => {
       if(data.length > 0){
         this.router.navigateByUrl('/ticketform');
-      } else {
+      } else {     
         this.messageService.add({severity:'warn', summary:'Login Error', detail:'Please check email and password.'});
+        loginForm.reset();
       }
   })
    }

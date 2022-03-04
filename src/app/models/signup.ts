@@ -4,6 +4,7 @@ export interface Signup {
     email:string;
     password:string;
     confirmPassword:string;
-
+    pincode : string;
+    address: string;
 
   }
