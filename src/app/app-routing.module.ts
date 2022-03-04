@@ -7,7 +7,8 @@ import { ListCategoryComponent } from './list-category/list-category.component';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
 import{HomeComponent} from './home/home.component';
 import { ListTicketComponent } from './list-ticket/list-ticket.component';
-
+import{AboutComponent} from './about/about.component';
+import{ContactComponent} from './contact/contact.component';
 
 const routes: Routes = [
   { path: 'addCategory', component: CreateCategoryComponent },
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path: 'listCategory', component: ListCategoryComponent },
   { path: 'ticketform', component: TicketFormComponent },
   { path: '', component: HomeComponent },
-  {path: 'listticket', component: ListTicketComponent }
+  {path: 'listticket', component: ListTicketComponent },
+  {path: 'about', component: AboutComponent},
+  {path: 'contact', component: ContactComponent}
 ];
 
 @NgModule({

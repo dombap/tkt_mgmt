@@ -19,6 +19,8 @@ import { TicketFormComponent } from './ticket-form/ticket-form.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { ListTicketComponent } from './list-ticket/list-ticket.component';
 import {InputTextModule} from 'primeng/inputtext';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {InputTextModule} from 'primeng/inputtext';
     ListCategoryComponent,
     TicketFormComponent,
     HomeComponent,
-    ListTicketComponent
+    ListTicketComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
