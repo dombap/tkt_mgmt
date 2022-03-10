@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MessageService} from 'primeng/api';
+import {MessageService,ConfirmationService,ConfirmEventType} from 'primeng/api';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,7 +11,7 @@ export class ListCategoryComponent implements OnInit {
   category : any;
   selectedCategory : any;
   display: boolean = false;
-  constructor(private messageService: MessageService,private http: HttpClient) { }
+  constructor(private messageService: MessageService,private http: HttpClient,private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.getcategories();
@@ -22,7 +22,17 @@ export class ListCategoryComponent implements OnInit {
       this.category = data
   })
   }
-
+  confirm(id:number) {
+    this.confirmationService.confirm({
+        message: 'Are you sure that you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+            // this.messageService.add({severity:'info', summary:'Confirmed', detail:'You have accepted'});
+            this.delete(id);
+        }
+    });
+}
   delete(id: number){
          let deleteId = { deleteId : id }       
          const headers = { 'Access-Control-Allow-Origin': '*' };

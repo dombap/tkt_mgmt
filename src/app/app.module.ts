@@ -10,7 +10,7 @@ import { ListCategoryComponent } from './list-category/list-category.component';
 import {TableModule} from 'primeng/table';
 import { HomeComponent } from './home/home.component';
 import {ToastModule} from 'primeng/toast';
-import {MessageService} from 'primeng/api';
+import {MessageService,ConfirmationService} from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DialogModule} from 'primeng/dialog';
 import { RouterModule } from '@angular/router';
@@ -21,6 +21,7 @@ import { ListTicketComponent } from './list-ticket/list-ticket.component';
 import {InputTextModule} from 'primeng/inputtext';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,10 @@ import { ContactComponent } from './contact/contact.component';
     RouterModule,
     DropdownModule,
     InputTextModule,
+    ConfirmDialogModule,
     AppRoutingModule
   ],
-  providers: [MessageService],
+  providers: [MessageService,ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
