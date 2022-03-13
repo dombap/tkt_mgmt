@@ -16,15 +16,40 @@ export class SignupComponent implements OnInit {
     password: '',
     confirmPassword: '',
     pincode: '',
-    address: ''
+    address: '',
+    mobile: '',
+    gender: ''
   }
   constructor(private http: HttpClient,private messageService: MessageService,private router: Router) { }
 
   ngOnInit(): void {
 
   }
+  keyPressAlphanumeric(event : any) {
+
+    var inp = String.fromCharCode(event.keyCode);
+
+    if (/[a-zA-Z]/.test(inp)) {
+      return true;
+    } else {
+      event.preventDefault();
+      return false;
+    }
+  }
+  keyPressNumbers(event: any) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    // Only Numbers 0-9
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
+  }
   onSubmit(data : any){
     console.log('Signup----',data);
+
+
     if(data.password !== data.confirmPassword) {
       this.messageService.add({severity:'warn', summary:'Password Error', detail:'Password & confirm password does not match.'});
     } else {

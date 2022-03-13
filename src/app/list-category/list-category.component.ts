@@ -11,11 +11,12 @@ export class ListCategoryComponent implements OnInit {
   category : any;
   selectedCategory : any;
   display: boolean = false;
+  admin: boolean = false;
   constructor(private messageService: MessageService,private http: HttpClient,private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.getcategories();
-
+    this.admin = localStorage.getItem('admin') ? true : false;
   }
   getcategories(){
     this.http.get<any>('http://localhost:8000/getallcategories').subscribe(data => {

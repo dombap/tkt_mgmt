@@ -14,6 +14,9 @@ export class ListTicketComponent implements OnInit {
   employeeList: [] = [];
   scrollHeight: string = '100px';
   category : any;
+  displayAssign : boolean = false;
+  assigneeDetails : string = '';
+  admin: boolean = false;
   constructor(private messageService: MessageService,private http: HttpClient,private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
@@ -24,6 +27,7 @@ export class ListTicketComponent implements OnInit {
 this.http.get<any>('http://localhost:8000/getallcategories').subscribe(data => {
   this.category = data
 })
+this.admin = localStorage.getItem('admin') ? true : false;
   }
   gettickets(){
     this.http.get<any>('http://localhost:8000/getticketslist').subscribe(data => {
@@ -80,7 +84,31 @@ this.http.get<any>('http://localhost:8000/getallcategories').subscribe(data => {
     form.reset();
   }
 
+  assign(ticket : any) {
+    this.assigneeDetails = '';
+    this.displayAssign = true;
+    this.selectedticket = ticket;
+    let selectedId = { selectedId : ticket.id }  
+    console.log('this.selectedticket----',this.selectedticket);
+    this.http.post<any>('http://localhost:8000/getassignee', selectedId).subscribe(data => {
+            console.log('data---',data);
+            if(data.length >0){
+              this.assigneeDetails = data[0].firstName + ' '+ data[0].lastName;
+            }
+          
+           })
+}
 
-
-
+updateAssign(ticketAssignForm : any){
+console.log('selectedticket---',this.selectedticket);
+console.log('ticketAssignForm---',ticketAssignForm);
+const headers = { 'Access-Control-Allow-Origin': '*' };
+this.http.put<any>('http://localhost:8000/updateassignto', this.selectedticket, {headers}).subscribe(data => {
+           console.log('data---',data);
+           this.messageService.add({severity:'success', summary:'Add Assign To ', detail:'Ticket assigned succesfully.'});
+           this.gettickets(); 
+          })
+          ticketAssignForm.reset();
+this.displayAssign = false;
+}
 }

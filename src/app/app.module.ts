@@ -22,6 +22,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ListEmployeeComponent } from './list-employee/list-employee.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     HomeComponent,
     ListTicketComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ListEmployeeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -6,5 +6,6 @@ export interface Signup {
     confirmPassword:string;
     pincode : string;
     address: string;
-
+  mobile : string;
+  gender : string;
   }

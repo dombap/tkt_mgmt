@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div  id="sect1">
 <p-table [value]="category" [paginator]="true" [rows]="10">
     <ng-template pTemplate="header">
@@ -5,7 +6,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Desc</th>
-            <th>Action</th>
+            <th *ngIf="admin">Action</th>
         </tr>    
     
     </ng-template>
@@ -16,7 +17,7 @@
             <td>{{category.id}}</td>
             <td>{{category.name}}</td>
             <td>{{category.desc}}</td>
-            <td>
+            <td *ngIf="admin">
             <button type="submit" class="btn btn-primary" (click)="confirm(category.id)">Delete</button>
             <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
             <!-- <p-button (click)="confirm(category.id)" label="Delete" styleClass="mr-2"></p-button> -->
