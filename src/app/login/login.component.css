@@ -6,8 +6,7 @@
     background-color: #cccccc; 
     }
      */
-
-     .divider:after,
+ .divider:after,
 .divider:before {
   content: "";
   flex: 1;

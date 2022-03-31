@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { LoginComponent } from './login/login.component';
@@ -11,7 +11,8 @@ import{AboutComponent} from './about/about.component';
 import{ContactComponent} from './contact/contact.component';
 import{ListEmployeeComponent}from './list-employee/list-employee.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { AssetsComponent } from './assets/assets.component';
+import { ListAssetComponent } from './list-asset/list-asset.component';
 
 const routes: Routes = [
   { path: 'addCategory', component: CreateCategoryComponent},
@@ -24,7 +25,10 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'listemployee', component: ListEmployeeComponent},
-  {path: '', component: NavbarComponent}
+  {path: '', component: NavbarComponent},
+  {path:'assets',component: AssetsComponent},
+  {path:'listasset',component: ListAssetComponent}
+
 ];
 
 @NgModule({

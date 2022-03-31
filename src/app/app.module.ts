@@ -24,6 +24,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AssetsComponent } from './assets/assets.component';
+import { ListAssetComponent } from './list-asset/list-asset.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     AboutComponent,
     ContactComponent,
     ListEmployeeComponent,
-    NavbarComponent
+    NavbarComponent,
+    AssetsComponent,
+    ListAssetComponent
   ],
   imports: [
     BrowserModule,
