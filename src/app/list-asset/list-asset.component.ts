@@ -8,13 +8,28 @@ import {MessageService,ConfirmationService,ConfirmEventType} from 'primeng/api';
   styleUrls: ['./list-asset.component.css']
 })
 export class ListAssetComponent implements OnInit {
-
-  constructor(private http: HttpClient, private confirmationService: ConfirmationService, private messageService: MessageService) { }
   asset : any;
+  assets: any[];
+  selectedAssets: any;
   admin: boolean = false;
+  selectedticket : any;
+  scrollHeight: string = '100px';
   display: boolean = false;
   selectedasset : any;
+  assetList:any;
+  employeeList: [] = [];
   displayAssign : boolean = false;
+
+  constructor(private http: HttpClient, private confirmationService: ConfirmationService, private messageService: MessageService) {
+    this.assets = [
+      {type: 'Keyboard', Number: '1'},
+      {type: 'Mouse',  Number: '2'},
+      {type: 'Laptop', Number: '3'},
+      {type: 'CPU', Number: '4'},
+      {type: 'Headphones', Number: '5'}
+  ];
+  }
+ 
   ngOnInit(): void {
     this.getAsset();
     this.admin = localStorage.getItem('admin') ? true : false;
@@ -34,6 +49,7 @@ export class ListAssetComponent implements OnInit {
             this.delete(id);
         }
     });
+    
 }
 delete(id: number){
   let deleteId = { deleteId : id }       
@@ -50,11 +66,9 @@ delete(id: number){
 update(asset : any){
   this.display = true;
   this.selectedasset= asset;
-  console.log(" selectedasset--45-",this. selectedasset);
-  // this.selectedasset.createdBy1 = ticket.created_by_id;
-  // this.selectedasset.desc1 = ticket.description;
-  // this.selectedasset.createdFor1 = ticket.created_for_id;
-  // this.selectedasset.category1 = ticket.category_id;
+  console.log(" selectedasset--45-",this.selectedasset);  
+  this.selectedasset.type =asset.asset_type;
+  this.selectedasset.number =asset.asset_number;
 }
 
 
@@ -64,11 +78,17 @@ onUpdate(updateForm: any){
   const headers = { 'Access-Control-Allow-Origin': '*' };
   this.http.put<any>('http://localhost:8000/updateasset', this.selectedasset, {headers}).subscribe(data => {
              console.log('data---',data);
-             this.messageService.add({severity:'success', summary:'Update Category', detail:'Category updated succesfully.'});
+             this.messageService.add({severity:'success', summary:'Update Asset', detail:'Asset updated succesfully.'});
              this.getAsset(); 
             })
   updateForm.reset();
   this.display = false;
 }
 
+
+reset(form: any){
+  form.reset();
 }
+
+}
+

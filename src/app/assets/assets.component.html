@@ -9,32 +9,21 @@
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form  #assetForm="ngForm">
 
-
-          <!-- Email input -->
-    
-
+          <!-- Email input -->    
           <div class="form-outline mb-3">
+           <label class="form-label" for="form3Example3">Asset Type: </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <p-dropdown [options]="assets"  [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedAssets" optionLabel="type"></p-dropdown>
-           <label class="form-label" for="form3Example3">Asset Type </label> 
+      
           </div>
-          <!DOCTYPE html>
+        <!DOCTYPE html>
           <html>
           <body>
-          
           </body>
           </html>
 
-
-          <!-- Password input -->
-          <div class="form-outline mb-3">
-              <input type="text" class="form-control" id="asset number " class="form-control form-control-lg" [(ngModel)]="assetNumber" placeholder="Enter Asset Number" name="assetNumber" />
-            <label class="form-label" for="form3Example4">Asset Number</label>
-          </div>
-
-
           <div class="form-outline flex-fill mb-0">
-            <label for="craetedFor" class="form-label">Assign To:</label>
-            &nbsp; &nbsp; 
+            <label for="createdFor" class="form-label">Assign To:</label>
+            &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;
             <p-dropdown
             [options]="employeeList"
             [ngModelOptions]="{standalone: true}"
@@ -42,7 +31,7 @@
             placeholder="Select a Name"
             optionLabel="firstName"
             [showClear]="true"
-            [scrollHeight] = scrollHeight
+            [scrollHeight] = "scrollHeight"
           ></p-dropdown>
             <!-- <p-dropdown
             [options]="AssignTo"
@@ -53,13 +42,21 @@
             [showClear]="true"
           ></p-dropdown> -->
           </div>
-          
+          <div class="form-outline mb-3">
+            <br>
+            <label class="form-label" for="form3Example4">Asset Number:</label>
+            <input type="text" class="form-control" id="asset number" style="width: 70%;" class="form-control form-control-lg" [(ngModel)]="assetNumber" placeholder="Enter Asset Number" name="assetNumber" />
+        
+        </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="button" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="onSubmit(assetForm)" >Save</button>
             
           </div>
+
+
+          
         </form>
         <p-toast position="center"></p-toast>
       </div>

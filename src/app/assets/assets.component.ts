@@ -47,6 +47,10 @@ let data ={
       assetForm.reset();
  }
 
+ reset(categoryform : any) {
+  categoryform.reset();
+}
+
    }
 
  
